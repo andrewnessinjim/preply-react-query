@@ -31,7 +31,7 @@ The Supabase CLI is included as a dev dependency, so no global install is needed
 npx supabase start
 ```
 
-This spins up local Postgres, Auth, Storage, and Studio in Docker. Once it finishes, it prints an `API URL` and an `anon key` — you'll need both in the next step. You can reopen these values at any time with:
+This spins up local Postgres, Auth, Storage, and Studio in Docker. Once it finishes, it prints an `API URL` and an `anon key` — you'll need both in the next step. (In the Supabase web console this same key is labeled **Publishable key** instead of `anon key` — they're the same thing.) You can reopen these values at any time with:
 
 ```sh
 npx supabase status
