@@ -66,3 +66,6 @@ select
   round((random() * 100)::numeric, 2),
   now() - (random() * interval '2 years')
 from generate_series(1, 1000);
+
+insert into public.orders (customer_name, item, status)
+values ('Alex Kim', 'Margherita Pizza', 'received');

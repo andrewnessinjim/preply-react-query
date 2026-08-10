@@ -1,0 +1,99 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: #2b2b2b;
+  padding: 2rem;
+}
+
+.backLink {
+  align-self: flex-start;
+  margin: 0 auto;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.content {
+  width: 100%;
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.intro {
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.intro code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.05rem 0.35rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+.title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.25rem;
+  color: #d0392b;
+  margin-bottom: 0.75rem;
+}
+
+.viewer {
+  background: #d9f4c8;
+  color: #263a1e;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-family: "VT323", monospace;
+  font-size: 1.05rem;
+}
+
+.cardName {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardRole {
+  opacity: 0.75;
+}
+
+.unmountedNotice {
+  background: #1a1a1a;
+  color: #999;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-family: "VT323", monospace;
+  font-size: 1.05rem;
+}
+
+.toggleButton {
+  align-self: flex-start;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  border: 2px solid #d0392b;
+  background: transparent;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.toggleButton:hover {
+  background: rgba(208, 57, 43, 0.2);
+}

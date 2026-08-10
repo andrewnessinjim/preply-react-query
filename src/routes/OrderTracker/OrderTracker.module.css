@@ -1,0 +1,191 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: #2b2b2b;
+  padding: 2rem;
+}
+
+.backLink {
+  align-self: flex-start;
+  margin: 0 auto;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.content {
+  width: 100%;
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.intro {
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.intro code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.05rem 0.35rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+.title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.25rem;
+  color: #d0392b;
+  margin-bottom: 0.75rem;
+}
+
+.staffLink {
+  align-self: flex-start;
+  color: #f5a89f;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+}
+
+.staffLink:hover {
+  text-decoration: underline;
+}
+
+.panel {
+  background: #1a1a1a;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.panelMessage {
+  color: #999;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+}
+
+.orderMeta {
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+}
+
+.stepper {
+  display: flex;
+  list-style: none;
+  gap: 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  position: relative;
+  color: #666;
+  font-family: "VT323", monospace;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  left: 55%;
+  width: 90%;
+  height: 3px;
+  background: #333;
+}
+
+.stepComplete:not(:last-child)::after {
+  background: #d0392b;
+}
+
+.stepDot {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: #333;
+  border: 3px solid #333;
+  z-index: 1;
+}
+
+.stepComplete .stepDot {
+  background: #d0392b;
+  border-color: #d0392b;
+}
+
+.stepCurrent .stepDot {
+  background: #fff;
+  border-color: #d0392b;
+}
+
+.stepComplete {
+  color: #e8e8e8;
+}
+
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.statusButton {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 2px solid #d0392b;
+  background: transparent;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.statusButton:hover:not(:disabled) {
+  background: rgba(208, 57, 43, 0.2);
+}
+
+.statusButton:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (max-width: 30rem) {
+  .stepper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .step {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .step:not(:last-child)::after {
+    display: none;
+  }
+}

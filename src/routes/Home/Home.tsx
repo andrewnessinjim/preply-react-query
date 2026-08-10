@@ -30,6 +30,34 @@ const examples: Example[] = [
     tag: "query keys",
     to: "/leaderboard",
   },
+  {
+    title: "New Observer, New Fetch",
+    description:
+      "Mount a second component that watches the same query. Do it while the data is fresh and nothing happens; do it once the data goes stale and watch a background refetch fire.",
+    tag: "refetchOnMount",
+    to: "/mount-refetch",
+  },
+  {
+    title: "Fetch on Demand",
+    description:
+      "The query is mounted from the start but stays disabled until you pick a name. See how enabled defers a fetch instead of firing it on mount.",
+    tag: "enabled",
+    to: "/on-demand",
+  },
+  {
+    title: "Garbage Collection",
+    description:
+      "Unmount a query's last observer and watch a short gcTime countdown decide whether the cache entry survives long enough to be reused, or gets collected and refetched from scratch.",
+    tag: "gcTime",
+    to: "/garbage-collection",
+  },
+  {
+    title: "Order Tracker",
+    description:
+      "A customer-facing tracker polls an order's status with refetchInterval, while a separate staff screen updates it. Open both in two tabs to watch one catch up to the other with no shared connection.",
+    tag: "refetchInterval",
+    to: "/order-tracker",
+  },
 ];
 
 function Home() {
