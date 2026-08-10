@@ -52,11 +52,32 @@ const examples: Example[] = [
     to: "/garbage-collection",
   },
   {
+    title: "Place an Order",
+    description:
+      "Submit a checkout form through useMutation and watch its status walk from idle to pending to success or error, with onSuccess/onError callbacks logged as they fire. Flip a switch to force the error path.",
+    tag: "useMutation",
+    to: "/place-order",
+  },
+  {
     title: "Order Tracker",
     description:
       "A customer-facing tracker polls an order's status with refetchInterval, while a separate staff screen updates it. Open both in two tabs to watch one catch up to the other with no shared connection.",
     tag: "refetchInterval",
     to: "/order-tracker",
+  },
+  {
+    title: "Dependent Queries",
+    description:
+      "Fetch a score, then the player who set it — two ways. Compare a proper dependent query against folding both requests into one, and see exactly what that shortcut costs you.",
+    tag: "dependent queries",
+    to: "/dependent-queries",
+  },
+  {
+    title: "Manual Cache Update",
+    description:
+      "A mutation's onSuccess writes the server's response straight into the cache with setQueryData instead of invalidating. A separate read-only panel updates instantly, with no refetch at all.",
+    tag: "setQueryData",
+    to: "/manual-cache-update",
   },
 ];
 

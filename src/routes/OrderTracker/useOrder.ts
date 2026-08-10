@@ -25,7 +25,7 @@ export interface Order {
   updated_at: string;
 }
 
-const orderKey = ["order-status", ORDER_ID] as const;
+export const orderKey = ["order-status", ORDER_ID] as const;
 
 export function useOrder() {
   return useQuery({
@@ -57,6 +57,34 @@ export function useUpdateOrderStatus() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: orderKey });
+    },
+  });
+}
+
+export interface UpdateOrderDetailsInput {
+  customerName: string;
+  item: string;
+}
+
+export function useUpdateOrderDetails() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: UpdateOrderDetailsInput): Promise<Order> => {
+      const { data, error } = await supabase
+        .from("orders")
+        .update({ customer_name: input.customerName, item: input.item })
+        .eq("id", ORDER_ID)
+        .select("id, customer_name, item, status, updated_at")
+        .single();
+      if (error) throw error;
+      return data;
+    },
+    onSuccess: (updatedOrder) => {
+      // No invalidateQueries here — the update already returned the full,
+      // current row, so we hand it straight to the cache instead of asking
+      // the database to confirm what we just told it.
+      queryClient.setQueryData(orderKey, updatedOrder);
     },
   });
 }
