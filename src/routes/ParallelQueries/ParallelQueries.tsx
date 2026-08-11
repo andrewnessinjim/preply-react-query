@@ -37,8 +37,14 @@ function ParallelQueries() {
             there's no single moment where "the page is ready" — it arrives
             in pieces, on whatever schedule each query happens to finish.
             Combining them into one shared loading state takes deliberate
-            extra work, which is exactly what later examples in this
-            section will show.
+            extra work — see it done in{" "}
+            <Link
+              to="/combined-parallel-queries"
+              className={styles.inlineLink}
+            >
+              Combined Parallel Queries
+            </Link>
+            , and the new tradeoff that comes with it.
           </p>
         </header>
 

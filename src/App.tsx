@@ -11,6 +11,9 @@ import OrderTracker from "./routes/OrderTracker/OrderTracker";
 import OrderManage from "./routes/OrderTracker/OrderManage";
 import DependentQueries from "./routes/DependentQueries/DependentQueries";
 import ParallelQueries from "./routes/ParallelQueries/ParallelQueries";
+import CombinedParallelQueries from "./routes/ParallelQueries/CombinedParallelQueries";
+import BestOfBothWorlds from "./routes/ParallelQueries/BestOfBothWorlds";
+import DynamicParallelQueries from "./routes/DynamicParallelQueries/DynamicParallelQueries";
 import ManualCacheUpdate from "./routes/ManualCacheUpdate/ManualCacheUpdate";
 import PartialCacheUpdate from "./routes/PartialCacheUpdate/PartialCacheUpdate";
 
@@ -30,6 +33,15 @@ function App() {
         <Route path="/order-tracker/manage" element={<OrderManage />} />
         <Route path="/dependent-queries" element={<DependentQueries />} />
         <Route path="/parallel-queries" element={<ParallelQueries />} />
+        <Route
+          path="/combined-parallel-queries"
+          element={<CombinedParallelQueries />}
+        />
+        <Route path="/best-of-both-worlds" element={<BestOfBothWorlds />} />
+        <Route
+          path="/dynamic-parallel-queries"
+          element={<DynamicParallelQueries />}
+        />
         <Route path="/manual-cache-update" element={<ManualCacheUpdate />} />
         <Route path="/partial-cache-update" element={<PartialCacheUpdate />} />
       </Routes>

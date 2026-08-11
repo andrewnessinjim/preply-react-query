@@ -54,22 +54,33 @@
   margin-bottom: 0.75rem;
 }
 
-.inlineLink {
-  color: #f5a89f;
+.message {
+  color: #999;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
 }
 
-.inlineLink:hover {
-  text-decoration: underline;
+.checklist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-.status {
-  align-self: flex-start;
-  padding: 0.4rem 0.9rem;
+.checklistItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
   border-radius: 999px;
   background: #1a1a1a;
-  color: #8fd67a;
+  color: #e8e8e8;
   font-family: "VT323", monospace;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.checklistItem input {
+  cursor: pointer;
 }
 
 .panels {
@@ -109,69 +120,15 @@
   color: #8fd67a;
 }
 
-.panelCode {
-  font-family: monospace;
-  font-size: 0.8rem;
-  color: #999;
-  line-height: 1.5;
-  overflow-wrap: break-word;
-}
-
-.message {
-  color: #999;
-  font-family: "VT323", monospace;
-  font-size: 1.1rem;
-}
-
-.list {
+.statRow {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  list-style: none;
-}
-
-.listItem {
-  display: flex;
-  flex-direction: column;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.listItem:last-child {
-  border-bottom: none;
-}
-
-.listItemPrimary {
+  justify-content: space-between;
+  gap: 0.75rem;
   color: #e8e8e8;
   font-family: "VT323", monospace;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
-.listItemSecondary {
+.statRow dt {
   color: #999;
-  font-family: "VT323", monospace;
-  font-size: 0.95rem;
-}
-
-.widget {
-  background: #1a1a1a;
-  border: 2px dashed #666;
-  border-radius: 0.75rem;
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.widgetLabel {
-  color: #999;
-  font-family: "VT323", monospace;
-  font-size: 1rem;
-  font-style: italic;
-}
-
-.widgetBody {
-  color: #e8e8e8;
-  font-family: "VT323", monospace;
-  font-size: 1.1rem;
 }

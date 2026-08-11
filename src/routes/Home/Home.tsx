@@ -73,7 +73,7 @@ const examples: Example[] = [
     title: "Dependent Queries",
     description:
       "Fetch a score, then the player who set it — two ways. Compare a proper dependent query against folding both requests into one, and see exactly what that shortcut costs you.",
-    tag: "dependent queries",
+    tag: "enabled",
     to: "/dependent-queries",
     category: "query",
     subsection: "multiple-queries",
@@ -84,6 +84,33 @@ const examples: Example[] = [
       "An artist's albums and tour dates — related only by artist name, no foreign key between them. Two independent useQuery calls show the simplest way to fetch both at once, and the drawback: each has its own loading state, so the page arrives in pieces.",
     tag: "useQuery",
     to: "/parallel-queries",
+    category: "query",
+    subsection: "multiple-queries",
+  },
+  {
+    title: "Combined Parallel Queries",
+    description:
+      "The same two fetches, wrapped in one queryFn with Promise.all for a single isLoading and isError. Fixes the lopsided-page problem from Parallel Queries — but now the fast piece waits for the slow one, either one failing fails both, and the cache is clubbed too: any other part of the app that just wants the albums can't dedupe against it.",
+    tag: "Promise.all",
+    to: "/combined-parallel-queries",
+    category: "query",
+    subsection: "multiple-queries",
+  },
+  {
+    title: "Best of Both Worlds",
+    description:
+      "useQueries() plus its combine option: two real, separate cache entries — so anything else in the app still dedupes against them — folded into one isLoading and one isError. Fixes both drawbacks at once, with an honest note on when useQueries is actually worth reaching for.",
+    tag: "useQueries",
+    to: "/best-of-both-worlds",
+    category: "query",
+    subsection: "multiple-queries",
+  },
+  {
+    title: "Dynamic Parallel Queries",
+    description:
+      "Check any number of players to compare their stats — the query array grows and shrinks at runtime. A per-player component with its own useQuery would work too, until you need to compare results across the whole set, like the top-score badge here does.",
+    tag: "useQueries",
+    to: "/dynamic-parallel-queries",
     category: "query",
     subsection: "multiple-queries",
   },
