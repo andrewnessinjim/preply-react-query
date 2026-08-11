@@ -68,4 +68,20 @@ select
 from generate_series(1, 1000);
 
 insert into public.orders (customer_name, item, status)
-values ('Alex Kim', 'Margherita Pizza', 'received');
+values
+  ('Alex Kim', 'Margherita Pizza', 'received'),
+  ('Jordan Lee', 'Pepperoni Pizza', 'preparing'),
+  ('Morgan Chen', 'Caesar Salad', 'out_for_delivery');
+
+insert into public.albums (artist, title, release_year)
+values
+  ('Nova Ridge', 'Static Bloom', 2018),
+  ('Nova Ridge', 'Concrete Garden', 2020),
+  ('Nova Ridge', 'Halflight', 2023);
+
+insert into public.tour_dates (artist, city, venue, show_date)
+values
+  ('Nova Ridge', 'Austin', 'Mohawk', '2026-09-12'),
+  ('Nova Ridge', 'Denver', 'Ogden Theatre', '2026-09-20'),
+  ('Nova Ridge', 'Seattle', 'The Showbox', '2026-10-02'),
+  ('Nova Ridge', 'Portland', 'Wonder Ballroom', '2026-10-05');

@@ -24,12 +24,72 @@
   color: #cfcfcf;
 }
 
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #a8261b;
+}
+
+.sectionTitle {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.1rem;
+  color: #d0392b;
+}
+
+.sectionSubtitle {
+  font-family: "VT323", monospace;
+  font-size: 1.2rem;
+  color: #cfcfcf;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   gap: 1.25rem;
-  max-width: 60rem;
-  margin: 0 auto;
+}
+
+.subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-left: 1.25rem;
+  border-left: 3px dashed #666;
+}
+
+.subsectionHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.subsectionTitle {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.9rem;
+  color: #e8e8e8;
+}
+
+.subsectionSubtitle {
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+  color: #999;
 }
 
 .tile {

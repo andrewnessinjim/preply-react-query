@@ -10,7 +10,9 @@ import PlaceAnOrder from "./routes/PlaceAnOrder/PlaceAnOrder";
 import OrderTracker from "./routes/OrderTracker/OrderTracker";
 import OrderManage from "./routes/OrderTracker/OrderManage";
 import DependentQueries from "./routes/DependentQueries/DependentQueries";
+import ParallelQueries from "./routes/ParallelQueries/ParallelQueries";
 import ManualCacheUpdate from "./routes/ManualCacheUpdate/ManualCacheUpdate";
+import PartialCacheUpdate from "./routes/PartialCacheUpdate/PartialCacheUpdate";
 
 function App() {
   return (
@@ -27,7 +29,9 @@ function App() {
         <Route path="/order-tracker" element={<OrderTracker />} />
         <Route path="/order-tracker/manage" element={<OrderManage />} />
         <Route path="/dependent-queries" element={<DependentQueries />} />
+        <Route path="/parallel-queries" element={<ParallelQueries />} />
         <Route path="/manual-cache-update" element={<ManualCacheUpdate />} />
+        <Route path="/partial-cache-update" element={<PartialCacheUpdate />} />
       </Routes>
     </BrowserRouter>
   );
