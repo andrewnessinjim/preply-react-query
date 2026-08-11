@@ -1,5 +1,5 @@
 import useWatchedProfile from "./useWatchedProfile";
-import styles from "./MountRefetch.module.css";
+import styles from "./NewObserverNewFetch.module.css";
 
 function secondsAgo(timestamp: number) {
   return Math.max(0, Math.round((Date.now() - timestamp) / 1000));

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import ManagerBadge from "./ManagerBadge";
 import ManagerCard from "./ManagerCard";
-import styles from "./Deduplication.module.css";
+import styles from "./QueryDeduplication.module.css";
 
-function Deduplication() {
+function QueryDeduplication() {
   return (
     <div className={styles.page}>
       <Link to="/" className={styles.backLink}>
@@ -49,4 +49,4 @@ function Deduplication() {
   );
 }
 
-export default Deduplication;
+export default QueryDeduplication;

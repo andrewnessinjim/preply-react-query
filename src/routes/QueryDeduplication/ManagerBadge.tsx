@@ -1,5 +1,5 @@
 import useAccountManager from "./useAccountManager";
-import styles from "./Deduplication.module.css";
+import styles from "./QueryDeduplication.module.css";
 
 function initials(name: string) {
   return name

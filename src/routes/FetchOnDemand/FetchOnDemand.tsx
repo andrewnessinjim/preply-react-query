@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnDemandProfile from "./useOnDemandProfile";
-import styles from "./OnDemand.module.css";
+import styles from "./FetchOnDemand.module.css";
 
 const MEMBERS = [
   { id: 1, name: "Jordan Blake" },
@@ -9,7 +9,7 @@ const MEMBERS = [
   { id: 3, name: "Sam Osei" },
 ];
 
-function OnDemand() {
+function FetchOnDemand() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const { data: manager, isLoading } = useOnDemandProfile(selectedId);
 
@@ -91,4 +91,4 @@ function OnDemand() {
   );
 }
 
-export default OnDemand;
+export default FetchOnDemand;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useLeaderboard, { type SortField } from "./useLeaderboard";
-import styles from "./Leaderboard.module.css";
+import styles from "./ArcadeLeaderboard.module.css";
 
 const SORT_OPTIONS: { field: SortField; label: string }[] = [
   { field: "score", label: "Score" },
@@ -18,7 +18,7 @@ function formatDate(value: string) {
   });
 }
 
-function Leaderboard() {
+function ArcadeLeaderboard() {
   const [sortField, setSortField] = useState<SortField>("score");
   const {
     data: rows,
@@ -152,4 +152,4 @@ function Leaderboard() {
   );
 }
 
-export default Leaderboard;
+export default ArcadeLeaderboard;

@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home/Home";
-import PokemonQuery from "./routes/PokemonQuery/PokemonQuery";
-import Deduplication from "./routes/Deduplication/Deduplication";
-import Leaderboard from "./routes/Leaderboard/Leaderboard";
-import MountRefetch from "./routes/MountRefetch/MountRefetch";
-import OnDemand from "./routes/OnDemand/OnDemand";
+import Pokedex from "./routes/Pokedex/Pokedex";
+import QueryDeduplication from "./routes/QueryDeduplication/QueryDeduplication";
+import ArcadeLeaderboard from "./routes/ArcadeLeaderboard/ArcadeLeaderboard";
+import NewObserverNewFetch from "./routes/NewObserverNewFetch/NewObserverNewFetch";
+import FetchOnDemand from "./routes/FetchOnDemand/FetchOnDemand";
 import GarbageCollection from "./routes/GarbageCollection/GarbageCollection";
-import PlaceOrder from "./routes/PlaceOrder/PlaceOrder";
+import PlaceAnOrder from "./routes/PlaceAnOrder/PlaceAnOrder";
 import OrderTracker from "./routes/OrderTracker/OrderTracker";
 import OrderManage from "./routes/OrderTracker/OrderManage";
 import DependentQueries from "./routes/DependentQueries/DependentQueries";
@@ -17,13 +17,13 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/pokemon-query" element={<PokemonQuery />} />
-        <Route path="/deduplication" element={<Deduplication />} />
-        <Route path="/leaderboard" element={<Leaderboard />} />
-        <Route path="/mount-refetch" element={<MountRefetch />} />
-        <Route path="/on-demand" element={<OnDemand />} />
+        <Route path="/pokemon-query" element={<Pokedex />} />
+        <Route path="/deduplication" element={<QueryDeduplication />} />
+        <Route path="/leaderboard" element={<ArcadeLeaderboard />} />
+        <Route path="/mount-refetch" element={<NewObserverNewFetch />} />
+        <Route path="/on-demand" element={<FetchOnDemand />} />
         <Route path="/garbage-collection" element={<GarbageCollection />} />
-        <Route path="/place-order" element={<PlaceOrder />} />
+        <Route path="/place-order" element={<PlaceAnOrder />} />
         <Route path="/order-tracker" element={<OrderTracker />} />
         <Route path="/order-tracker/manage" element={<OrderManage />} />
         <Route path="/dependent-queries" element={<DependentQueries />} />

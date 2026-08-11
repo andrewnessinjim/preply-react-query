@@ -1,7 +1,7 @@
 import { useRef, useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { usePlaceOrder } from "./usePlaceOrder";
-import styles from "./PlaceOrder.module.css";
+import styles from "./PlaceAnOrder.module.css";
 
 const ITEMS = [
   "Margherita Pizza",
@@ -16,7 +16,7 @@ interface LogEntry {
   message: string;
 }
 
-function PlaceOrder() {
+function PlaceAnOrder() {
   const [customerName, setCustomerName] = useState("");
   const [item, setItem] = useState(ITEMS[0]);
   const [simulateFailure, setSimulateFailure] = useState(false);
@@ -188,4 +188,4 @@ function PlaceOrder() {
   );
 }
 
-export default PlaceOrder;
+export default PlaceAnOrder;

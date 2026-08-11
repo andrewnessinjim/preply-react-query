@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProfileViewer from "./ProfileViewer";
 import { WATCHED_STALE_TIME } from "./useWatchedProfile";
-import styles from "./MountRefetch.module.css";
+import styles from "./NewObserverNewFetch.module.css";
 
-function MountRefetch() {
+function NewObserverNewFetch() {
   const [showSecondViewer, setShowSecondViewer] = useState(false);
   const [now, setNow] = useState(() => Date.now());
 
@@ -62,4 +62,4 @@ function MountRefetch() {
   );
 }
 
-export default MountRefetch;
+export default NewObserverNewFetch;

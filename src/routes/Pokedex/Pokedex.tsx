@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PokemonCard from "./PokemonCard";
-import styles from "./PokemonQuery.module.css";
+import styles from "./Pokedex.module.css";
 import usePokemon from "./usePokemon";
 
-function PokemonQuery() { // Becomes a subscriber to  ["pokemon", 2]
+function Pokedex() { // Becomes a subscriber to  ["pokemon", 2]
   const [id, setId] = React.useState(1);
   const { pokemon, isLoading, error } = usePokemon(id);
 
@@ -59,4 +59,4 @@ function PokemonQuery() { // Becomes a subscriber to  ["pokemon", 2]
   );
 }
 
-export default PokemonQuery;
+export default Pokedex;
