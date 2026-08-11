@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { useOrder, useUpdateOrderDetails } from "../OrderTracker/useOrder";
+import { useOrderDetails, useUpdateOrderDetails } from "./useOrderDetails";
 import styles from "./ManualCacheUpdate.module.css";
 
 function EditOrderForm() {
-  const { data: order } = useOrder();
+  const { data: order } = useOrderDetails();
   const updateDetails = useUpdateOrderDetails();
 
   const [customerName, setCustomerName] = useState("");
@@ -29,7 +29,7 @@ function EditOrderForm() {
     <div className={styles.panel}>
       <h2 className={styles.panelTitle}>Edit Order Details</h2>
       <p className={styles.panelCode}>
-        onSuccess: queryClient.setQueryData(["order-status", 1],
+        onSuccess: queryClient.setQueryData(["order-details", 1],
         updatedOrder)
       </p>
 

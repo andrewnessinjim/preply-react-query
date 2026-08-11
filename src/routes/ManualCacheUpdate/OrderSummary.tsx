@@ -1,14 +1,14 @@
-import { useOrder } from "../OrderTracker/useOrder";
+import { useOrderDetails } from "./useOrderDetails";
 import styles from "./ManualCacheUpdate.module.css";
 
 function OrderSummary() {
-  const { data: order, isLoading } = useOrder();
+  const { data: order, isLoading } = useOrderDetails();
 
   return (
     <div className={styles.panel}>
       <h2 className={styles.panelTitle}>Order Summary (read-only)</h2>
       <p className={styles.panelCode}>
-        useOrder() → useQuery(["order-status", 1])
+        useOrderDetails() → useQuery(["order-details", 1])
       </p>
 
       {isLoading || !order ? (
