@@ -20,6 +20,7 @@ import PlantCatalog from "./routes/PrefetchOnHover/PlantCatalog";
 import PlantDetail from "./routes/PrefetchOnHover/PlantDetail";
 import PlaceholderCatalog from "./routes/PrefetchOnHover/PlaceholderCatalog";
 import PlaceholderDetail from "./routes/PrefetchOnHover/PlaceholderDetail";
+import Pagination from "./routes/Pagination/Pagination";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
           path="/placeholder-data/:plantId"
           element={<PlaceholderDetail />}
         />
+        <Route path="/pagination" element={<Pagination />} />
       </Routes>
     </BrowserRouter>
   );

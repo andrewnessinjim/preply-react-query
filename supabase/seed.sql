@@ -169,3 +169,21 @@ values
     'Feathery fronds that want more humidity than your average houseplant.',
     'The trickiest plant in this shop for a dry apartment — it wants consistently moist soil and humidity well above what most homes have in winter. A bathroom with a window, a pebble tray, or a regular misting routine all help. Crispy fronds mean the air is too dry, not that it needs more water in the pot. Trim dead fronds at the base to keep new growth coming.'
   );
+
+-- 130 warehouse SKUs, seeded so pagination and sorting stay stable across resets.
+select setseed(0.73);
+
+-- Word picks live directly in the SELECT list rather than a LATERAL
+-- subquery: an uncorrelated LATERAL (nothing in it references n) gets
+-- hoisted by the planner and evaluated once for the whole query instead of
+-- once per row, which silently gives every row the same random() picks.
+insert into public.inventory_items (sku, name, category, price_cents, stock)
+select
+  'SKU-' || lpad(n::text, 5, '0'),
+  (array['Wireless', 'Ergonomic', 'Compact', 'Portable', 'Adjustable', 'Rugged', 'Slim', 'Modular', 'Smart', 'Classic'])[1 + floor(random() * 10)::int]
+    || ' ' ||
+    (array['Keyboard', 'Mouse', 'Monitor Stand', 'Desk Lamp', 'Webcam', 'Headset', 'Charging Dock', 'Cable Organizer', 'Laptop Stand', 'Speaker'])[1 + floor(random() * 10)::int],
+  (array['Electronics', 'Office', 'Accessories', 'Audio'])[1 + floor(random() * 4)::int],
+  (499 + floor(random() * 49500))::int,
+  floor(random() * 500)::int
+from generate_series(1, 130) as n;

@@ -133,6 +133,15 @@ const examples: Example[] = [
     subsection: "user-experience",
   },
   {
+    title: "Pagination",
+    description:
+      "A 130-row warehouse inventory table, paginated and sortable by four columns. Every page and sort combination is its own queryKey, so placeholderData: keepPreviousData keeps the old rows on screen — dimmed via isFetching — instead of a loading state on every click.",
+    tag: "keepPreviousData",
+    to: "/pagination",
+    category: "query",
+    subsection: "user-experience",
+  },
+  {
     title: "Place an Order",
     description:
       "Submit a checkout form through useMutation and watch its status walk from idle to pending to success or error, with onSuccess/onError callbacks logged as they fire. Flip a switch to force the error path.",
