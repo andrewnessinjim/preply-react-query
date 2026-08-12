@@ -142,6 +142,24 @@ const examples: Example[] = [
     subsection: "user-experience",
   },
   {
+    title: "Infinite Scroll",
+    description:
+      "220 product reviews loaded 10 at a time behind a More… button. useInfiniteQuery accumulates every fetched page into one growing data.pages array under a single queryKey, instead of swapping pages the way the numbered Pagination demo does.",
+    tag: "useInfiniteQuery",
+    to: "/infinite-scroll",
+    category: "query",
+    subsection: "user-experience",
+  },
+  {
+    title: "Infinite Scroll (Auto)",
+    description:
+      "The same 220 reviews and useInfiniteQuery setup, but fetchNextPage() fires on its own as you scroll near the bottom, driven by useOnScreen — a custom hook wrapping IntersectionObserver — instead of a More… button click.",
+    tag: "IntersectionObserver",
+    to: "/infinite-scroll-auto",
+    category: "query",
+    subsection: "user-experience",
+  },
+  {
     title: "Place an Order",
     description:
       "Submit a checkout form through useMutation and watch its status walk from idle to pending to success or error, with onSuccess/onError callbacks logged as they fire. Flip a switch to force the error path.",

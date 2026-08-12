@@ -187,3 +187,29 @@ select
   (499 + floor(random() * 49500))::int,
   floor(random() * 500)::int
 from generate_series(1, 130) as n;
+
+-- 220 product reviews, spread over the last year, seeded so infinite
+-- scrolling always loads the same content across resets.
+select setseed(0.91);
+
+insert into public.reviews (author_name, rating, title, body, created_at)
+select
+  (array['Alex', 'Jordan', 'Taylor', 'Morgan', 'Casey', 'Riley', 'Jamie', 'Avery', 'Quinn', 'Sam', 'Drew', 'Skyler', 'Reese', 'Rowan', 'Emerson'])[1 + floor(random() * 15)::int]
+    || ' ' ||
+    (array['K.', 'M.', 'R.', 'T.', 'S.', 'B.', 'L.', 'P.', 'W.', 'D.'])[1 + floor(random() * 10)::int],
+  (array[5, 5, 5, 4, 4, 4, 3, 3, 2, 1])[1 + floor(random() * 10)::int],
+  (array['Exactly what I needed', 'Solid purchase', 'Works great', 'Mixed feelings', 'Exceeded expectations', 'Does the job', 'Would buy again', 'Not bad at all', 'Pretty happy with this', 'Great value'])[1 + floor(random() * 10)::int],
+  (array[
+    'Shipping was fast and it works exactly as described. No complaints so far.',
+    'Been using this for a few weeks now and it has held up well. Would recommend.',
+    'Good quality for the price. A couple of small quirks but nothing dealbreaking.',
+    'Took a bit to get used to, but now I would not go back to my old setup.',
+    'Solid build quality, arrived well packaged, does what it says on the tin.',
+    'Had an issue at first but support sorted it out quickly. Happy customer.',
+    'Not quite what I expected from the photos, but still functional and fine.',
+    'This replaced an older version I had and it is a noticeable upgrade.',
+    'Simple, reliable, no surprises. Exactly the kind of product I like.',
+    'A little pricier than similar options but the extra quality is worth it.'
+  ])[1 + floor(random() * 10)::int],
+  now() - (random() * interval '365 days')
+from generate_series(1, 220) as n;

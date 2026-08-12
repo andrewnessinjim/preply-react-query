@@ -21,6 +21,8 @@ import PlantDetail from "./routes/PrefetchOnHover/PlantDetail";
 import PlaceholderCatalog from "./routes/PrefetchOnHover/PlaceholderCatalog";
 import PlaceholderDetail from "./routes/PrefetchOnHover/PlaceholderDetail";
 import Pagination from "./routes/Pagination/Pagination";
+import InfiniteScroll from "./routes/InfiniteScroll/InfiniteScroll";
+import InfiniteScrollAuto from "./routes/InfiniteScroll/InfiniteScrollAuto";
 
 function App() {
   return (
@@ -57,6 +59,8 @@ function App() {
           element={<PlaceholderDetail />}
         />
         <Route path="/pagination" element={<Pagination />} />
+        <Route path="/infinite-scroll" element={<InfiniteScroll />} />
+        <Route path="/infinite-scroll-auto" element={<InfiniteScrollAuto />} />
       </Routes>
     </BrowserRouter>
   );
