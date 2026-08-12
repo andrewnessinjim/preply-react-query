@@ -62,5 +62,10 @@ export function inventoryPageOptions(page: number, sortField: SortField) {
     // a different sort) and keeps rendering those rows, stale as they are,
     // until the new key's real data lands and replaces them.
     placeholderData: keepPreviousData,
+    // Without this, a page prefetched ahead of time is immediately stale
+    // (staleTime defaults to 0) — landing on it would still show it
+    // instantly from cache, but mounting would also kick off a redundant
+    // background refetch of a page that was just fetched moments ago.
+    staleTime: 5000,
   });
 }

@@ -54,6 +54,14 @@
   margin-bottom: 0.75rem;
 }
 
+.inlineLink {
+  color: #f5a89f;
+}
+
+.inlineLink:hover {
+  text-decoration: underline;
+}
+
 .message {
   color: #999;
   font-family: "VT323", monospace;
@@ -68,6 +76,13 @@
   gap: 1rem;
 }
 
+.toolbarControls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
 .sortRow {
   display: flex;
   align-items: center;
@@ -75,6 +90,22 @@
   color: #e8e8e8;
   font-family: "VT323", monospace;
   font-size: 1.1rem;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.toggle input {
+  width: 1.1rem;
+  height: 1.1rem;
+  cursor: pointer;
 }
 
 .sortSelect {
