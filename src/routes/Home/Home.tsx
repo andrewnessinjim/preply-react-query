@@ -115,6 +115,24 @@ const examples: Example[] = [
     subsection: "multiple-queries",
   },
   {
+    title: "Prefetch on Hover",
+    description:
+      "A plant shop's list page prefetches a plant's detail page the moment you hover its card, using the exact same query options object the detail page's useQuery reads — so by the time you click, the slow part is already done.",
+    tag: "prefetchQuery",
+    to: "/prefetch-on-hover",
+    category: "query",
+    subsection: "user-experience",
+  },
+  {
+    title: "Placeholder Data",
+    description:
+      "The same plant shop, but the detail page's useQuery adds a placeholderData function that reshapes the list row you already clicked from into an instant, partial preview — then isPlaceholderData tells the UI when the real fetch replaces it.",
+    tag: "placeholderData",
+    to: "/placeholder-data",
+    category: "query",
+    subsection: "user-experience",
+  },
+  {
     title: "Place an Order",
     description:
       "Submit a checkout form through useMutation and watch its status walk from idle to pending to success or error, with onSuccess/onError callbacks logged as they fire. Flip a switch to force the error path.",
@@ -158,6 +176,11 @@ const SUBSECTIONS: { key: string; title: string; description: string }[] = [
     key: "multiple-queries",
     title: "Multiple Queries",
     description: "Fetching more than one thing at once, and how you wire the requests together.",
+  },
+  {
+    key: "user-experience",
+    title: "User Experience",
+    description: "Shaping when and how a fetch happens so the app feels faster than the network actually is.",
   },
 ];
 
