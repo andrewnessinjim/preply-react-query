@@ -1,9 +1,8 @@
 import { keepPreviousData, queryOptions } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
+import type { SortField, InventoryPage } from "./types";
 
 export const PAGE_SIZE = 10;
-
-export type SortField = "name" | "category" | "price_cents" | "stock";
 
 export const SORT_FIELDS: { value: SortField; label: string }[] = [
   { value: "name", label: "Name" },
@@ -11,20 +10,6 @@ export const SORT_FIELDS: { value: SortField; label: string }[] = [
   { value: "price_cents", label: "Price" },
   { value: "stock", label: "Stock" },
 ];
-
-export interface InventoryItem {
-  id: number;
-  sku: string;
-  name: string;
-  category: string;
-  price_cents: number;
-  stock: number;
-}
-
-export interface InventoryPage {
-  items: InventoryItem[];
-  totalCount: number;
-}
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));

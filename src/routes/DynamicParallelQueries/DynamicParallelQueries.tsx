@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { usePlayerRoster, usePlayerStats } from "./usePlayerComparison";
+import Intro from "./Intro";
 import styles from "./DynamicParallelQueries.module.css";
 
 function DynamicParallelQueries() {
@@ -23,45 +24,7 @@ function DynamicParallelQueries() {
       </Link>
 
       <div className={styles.content}>
-        <header className={styles.intro}>
-          <h1 className={styles.title}>Dynamic Parallel Queries</h1>
-          <p>
-            Every other demo in this section fetches a fixed, known number
-            of things — always the same one or two queries. Check boxes
-            below instead: each one adds or removes a player from{" "}
-            <code>selectedIds</code>, and{" "}
-            <code>usePlayerStats(selectedIds)</code> fires one stats query
-            per checked player. The array TanStack Query sees genuinely
-            grows and shrinks at runtime, from zero players to however many
-            you check.
-          </p>
-          <p>
-            You could dodge the Rules of Hooks issue here just by
-            extracting a <code>{"<PlayerStatCard playerId={id} />"}</code>{" "}
-            component and letting each instance call its own{" "}
-            <code>useQuery</code> — that's completely valid React, and
-            simpler than this page. It works fine right up until something
-            needs to know about the whole set of players at once. The{" "}
-            <strong>🏆 Top Score</strong> badge below appears on exactly one
-            card — whichever currently has the highest score among the
-            players that have loaded so far — and that's computed by{" "}
-            <code>usePlayerStats</code>'s own <code>combine</code> option,
-            which reduces the whole results array down to a{" "}
-            <code>topScoreId</code> alongside the individual results, before
-            this component ever sees any of it. A list of independent child
-            components, each hiding its own fetch inside itself, has no way
-            to compare notes like that.
-          </p>
-          <p>
-            Each card still has its own independent loading state,
-            deliberately not combined into one — these are different
-            people, not different pieces of one page, so it makes more
-            sense for each to arrive on its own. The badge just shifts as
-            results land. Uncheck a player and check them again: their card
-            reappears instantly, because their query key —{" "}
-            <code>["player-stats", id]</code> — never left the cache.
-          </p>
-        </header>
+        <Intro />
 
         {isRosterLoading || !roster ? (
           <p className={styles.message}>Loading player roster...</p>

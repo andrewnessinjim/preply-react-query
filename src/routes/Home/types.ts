@@ -1,0 +1,10 @@
+export type Category = "query" | "mutation";
+
+export interface Example {
+  title: string;
+  description: string;
+  tag: string;
+  to: string;
+  category: Category;
+  subsection?: string;
+}

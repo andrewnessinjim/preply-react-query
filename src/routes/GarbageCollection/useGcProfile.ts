@@ -1,19 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
+import type { TeamMember } from "./types";
 
 export const GC_MEMBER_ID = 1;
 export const GC_TIME = 5000;
 export const GC_STALE_TIME = 60000;
-
-export interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  department: string;
-  location: string;
-  email: string;
-  bio: string;
-}
 
 export const gcProfileKey = ["gc-demo-profile", GC_MEMBER_ID] as const;
 

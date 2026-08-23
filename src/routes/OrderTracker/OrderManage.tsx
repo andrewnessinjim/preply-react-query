@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
 import OrderStepper from "./OrderStepper";
-import {
-  ORDER_STATUSES,
-  useOrder,
-  useUpdateOrderStatus,
-  type OrderStatus,
-} from "./useOrder";
+import { ORDER_STATUSES, useOrder, useUpdateOrderStatus } from "./useOrder";
+import type { OrderStatus } from "./types";
+import Intro from "./OrderManageIntro";
 import styles from "./OrderTracker.module.css";
 
 const STEP_LABELS: Record<OrderStatus, string> = {
@@ -26,25 +23,7 @@ function OrderManage() {
       </Link>
 
       <div className={styles.content}>
-        <header className={styles.intro}>
-          <h1 className={styles.title}>Update Order Status</h1>
-          <p>
-            This is the staff-facing screen — plain buttons that run a{" "}
-            <code>useMutation</code> which updates the row in Supabase.
-            Nothing here talks to the tracker page directly. Open the{" "}
-            <strong>tracker view</strong> below in a second tab, then click a
-            status here and watch it show up over there once its poll comes
-            back around.
-          </p>
-          <Link
-            to="/order-tracker"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.staffLink}
-          >
-            Open tracker view in a new tab →
-          </Link>
-        </header>
+        <Intro />
 
         {isLoading || !order ? (
           <div className={styles.panel}>

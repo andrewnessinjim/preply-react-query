@@ -1,18 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
-
-export interface NewOrderInput {
-  customerName: string;
-  item: string;
-  simulateFailure: boolean;
-}
-
-export interface PlacedOrder {
-  id: number;
-  customer_name: string;
-  item: string;
-  status: string;
-}
+import type { NewOrderInput, PlacedOrder, UsePlaceOrderCallbacks } from "./types";
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -32,11 +20,6 @@ async function placeOrder(input: NewOrderInput): Promise<PlacedOrder> {
     .single();
   if (error) throw error;
   return data;
-}
-
-interface UsePlaceOrderCallbacks {
-  onSuccess?: (order: PlacedOrder) => void;
-  onError?: (error: Error) => void;
 }
 
 export function usePlaceOrder({ onSuccess, onError }: UsePlaceOrderCallbacks = {}) {

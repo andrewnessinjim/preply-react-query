@@ -1,5 +1,6 @@
 import { useQueries, useQuery, type UseQueryResult } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
+import type { Album, TourDate, ArtistCatalog, CombinedArtistResult } from "./types";
 
 // albums and tour_dates aren't linked by a foreign key to each other — each
 // just carries this same artist name, the way a GitHub org's members and
@@ -10,12 +11,6 @@ const ARTIST = "Nova Ridge";
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-export interface Album {
-  id: number;
-  title: string;
-  release_year: number;
 }
 
 async function fetchAlbums(): Promise<Album[]> {
@@ -33,13 +28,6 @@ async function fetchAlbums(): Promise<Album[]> {
   ]);
   if (error) throw error;
   return data;
-}
-
-export interface TourDate {
-  id: number;
-  city: string;
-  venue: string;
-  show_date: string;
 }
 
 async function fetchTourDates(): Promise<TourDate[]> {
@@ -76,11 +64,6 @@ export function useTourDates() {
 
 // --- Combined Parallel Queries: same two fetches, one query ---
 
-export interface ArtistCatalog {
-  albums: Album[];
-  tourDates: TourDate[];
-}
-
 export function useAlbumsAndTourDates() {
   return useQuery({
     queryKey: ["artist-catalog-combined", ARTIST],
@@ -112,13 +95,6 @@ export function useAlbumsOnly() {
 }
 
 // --- Best of Both Worlds: useQueries + combine ---
-
-export interface CombinedArtistResult {
-  albums: Album[] | undefined;
-  tourDates: TourDate[] | undefined;
-  isLoading: boolean;
-  isError: boolean;
-}
 
 // Defined outside the hook so it's a stable reference across renders —
 // TanStack Query re-runs combine whenever any underlying query result

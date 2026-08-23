@@ -1,6 +1,9 @@
 import { useRef, useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { usePlaceOrder } from "./usePlaceOrder";
+import SuccessPanel from "./SuccessPanel";
+import Intro from "./Intro";
+import type { LogEntry } from "./types";
 import styles from "./PlaceAnOrder.module.css";
 
 const ITEMS = [
@@ -9,12 +12,6 @@ const ITEMS = [
   "Veggie Pizza",
   "Caesar Salad",
 ];
-
-interface LogEntry {
-  id: number;
-  time: string;
-  message: string;
-}
 
 function PlaceAnOrder() {
   const [customerName, setCustomerName] = useState("");
@@ -66,45 +63,14 @@ function PlaceAnOrder() {
       </Link>
 
       <div className={styles.content}>
-        <header className={styles.intro}>
-          <h1 className={styles.title}>Place an Order</h1>
-          <p>
-            Checking out calls <code>usePlaceOrder()</code>, a{" "}
-            <code>useMutation</code> that inserts a new row into the same{" "}
-            orders table the Order Tracker demo reads from. Unlike{" "}
-            <code>useQuery</code>, a mutation never fires on its own — it
-            only runs when you call <code>mutate()</code>, here on submit.
-            Its <code>status</code> property walks through exactly four
-            values: <code>"idle"</code> before you submit,{" "}
-            <code>"pending"</code> while the request is in flight, then
-            either <code>"success"</code> or <code>"error"</code> — and the
-            panel below re-renders directly off that value. Toggle "Simulate
-            payment failure" to see the error path, or open the{" "}
-            <strong>TanStack Query Devtools</strong>' <strong>Mutations</strong>{" "}
-            tab to watch <code>status</code> change live.
-          </p>
-        </header>
+        <Intro />
 
         <p className={styles.status}>
           status: <code>"{mutation.status}"</code>
         </p>
 
         {isSuccess && mutation.data ? (
-          <div className={styles.confirmation}>
-            <p className={styles.confirmationTitle}>Order confirmed</p>
-            <p className={styles.confirmationLine}>
-              Order #{mutation.data.id} for{" "}
-              <strong>{mutation.data.customer_name}</strong> ·{" "}
-              {mutation.data.item} · status: {mutation.data.status}
-            </p>
-            <button
-              type="button"
-              className={styles.secondaryButton}
-              onClick={handlePlaceAnother}
-            >
-              Place another order
-            </button>
-          </div>
+          <SuccessPanel order={mutation.data} onPlaceAnother={handlePlaceAnother} />
         ) : (
           <form className={styles.form} onSubmit={handleSubmit}>
             {isError && (

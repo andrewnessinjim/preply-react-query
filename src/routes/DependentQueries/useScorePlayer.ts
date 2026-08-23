@@ -1,25 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
+import type { ScoreRow, PlayerRow, ScoreWithPlayer } from "./types";
 
 export const SCORE_ID = 1;
 
 // Stands in for a related lookup that's slower than the first request, so
 // the "single loading state" tradeoff is visible without squinting.
 const PLAYER_FETCH_DELAY = 1200;
-
-export interface ScoreRow {
-  id: number;
-  score: number;
-  combo: number;
-  accuracy: number;
-  player_id: number;
-}
-
-export interface PlayerRow {
-  id: number;
-  gamertag: string;
-  country: string;
-}
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -70,11 +57,6 @@ export function usePlayer(
     enabled: playerId !== undefined,
     retry: false,
   });
-}
-
-export interface ScoreWithPlayer {
-  score: ScoreRow;
-  player: PlayerRow;
 }
 
 export function useScoreWithPlayer(simulateFailure: boolean) {

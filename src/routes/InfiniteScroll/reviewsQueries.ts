@@ -1,22 +1,8 @@
 import { infiniteQueryOptions } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
+import type { ReviewsPage } from "./types";
 
 export const REVIEWS_PAGE_SIZE = 10;
-
-export interface Review {
-  id: number;
-  author_name: string;
-  rating: number;
-  title: string;
-  body: string;
-  created_at: string;
-}
-
-export interface ReviewsPage {
-  items: Review[];
-  totalCount: number;
-  nextPageParam: number | undefined;
-}
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));

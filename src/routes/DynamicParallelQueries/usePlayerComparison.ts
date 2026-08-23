@@ -4,14 +4,14 @@ import {
   type UseQueryResult,
 } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
+import type {
+  PlayerRosterEntry,
+  PlayerStats,
+  PlayerStatsComparison,
+} from "./types";
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-export interface PlayerRosterEntry {
-  id: number;
-  gamertag: string;
 }
 
 // A cheap picker list — just id and gamertag for a handful of players — so
@@ -30,15 +30,6 @@ export function usePlayerRoster() {
       return data;
     },
   });
-}
-
-export interface PlayerStats {
-  id: number;
-  gamertag: string;
-  country: string;
-  gamesPlayed: number;
-  bestScore: number;
-  avgAccuracy: number;
 }
 
 async function fetchPlayerStats(playerId: number): Promise<PlayerStats> {
@@ -73,11 +64,6 @@ async function fetchPlayerStats(playerId: number): Promise<PlayerStats> {
     bestScore,
     avgAccuracy,
   };
-}
-
-export interface PlayerStatsComparison {
-  results: UseQueryResult<PlayerStats>[];
-  topScoreId: number | null;
 }
 
 // Defined outside the hook so it's a stable reference across renders, same

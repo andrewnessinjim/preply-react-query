@@ -1,9 +1,6 @@
 import { useScoreWithPlayer } from "./useScorePlayer";
+import type { CombinedPanelProps } from "./types";
 import styles from "./DependentQueries.module.css";
-
-interface CombinedPanelProps {
-  simulateFailure: boolean;
-}
 
 function CombinedPanel({ simulateFailure }: CombinedPanelProps) {
   const { data, isLoading, isFetching, error, refetch } =

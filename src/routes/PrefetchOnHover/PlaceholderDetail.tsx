@@ -4,9 +4,8 @@ import {
   plantListOptions,
   plantPlaceholderFromSummary,
   plantQueryOptions,
-  type Plant,
-  type PlantSummary,
 } from "./plantQueries";
+import type { Plant, PlantSummary } from "./types";
 import styles from "./PrefetchOnHover.module.css";
 
 function formatPrice(cents: number) {

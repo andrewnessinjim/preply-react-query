@@ -1,15 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
+import type { OrderDetails, UpdateOrderDetailsInput } from "./types";
 
 const ORDER_ID = 1;
-
-export interface OrderDetails {
-  id: number;
-  customer_name: string;
-  item: string;
-  status: string;
-  updated_at: string;
-}
 
 const orderDetailsKey = ["order-details", ORDER_ID] as const;
 
@@ -26,11 +19,6 @@ export function useOrderDetails() {
       return data;
     },
   });
-}
-
-export interface UpdateOrderDetailsInput {
-  customerName: string;
-  item: string;
 }
 
 function sleep(ms: number) {

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnDemandProfile from "./useOnDemandProfile";
+import Intro from "./Intro";
 import styles from "./FetchOnDemand.module.css";
 
 const MEMBERS = [
@@ -20,21 +21,7 @@ function FetchOnDemand() {
       </Link>
 
       <div className={styles.content}>
-        <header className={styles.intro}>
-          <h1 className={styles.title}>Fetch on Demand</h1>
-          <p>
-            This page mounts <code>useOnDemandProfile(selectedId)</code>{" "}
-            immediately, but nothing gets requested — its <code>useQuery</code>{" "}
-            is passed <code>enabled: selectedId !== null</code>, and{" "}
-            <code>selectedId</code> starts out <code>null</code>. Open the{" "}
-            <strong>TanStack Query Devtools</strong>: the query already exists
-            in the cache the moment this page loads, sitting disabled. Click a
-            name below and watch it flip on and fetch for the first time —
-            <code>enabled</code> is how you defer a query until the app
-            actually needs it, instead of it firing the instant the component
-            mounts.
-          </p>
-        </header>
+        <Intro />
 
         <div className={styles.buttonRow}>
           {MEMBERS.map((member) => (

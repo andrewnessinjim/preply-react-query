@@ -1,13 +1,9 @@
 import useWatchedProfile from "./useWatchedProfile";
+import type { ProfileViewerProps } from "./types";
 import styles from "./NewObserverNewFetch.module.css";
 
 function secondsAgo(timestamp: number) {
   return Math.max(0, Math.round((Date.now() - timestamp) / 1000));
-}
-
-interface ProfileViewerProps {
-  label: string;
-  now: number;
 }
 
 function ProfileViewer({ label }: ProfileViewerProps) {

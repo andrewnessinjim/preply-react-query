@@ -1,18 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
+import type { TeamMember } from "./types";
 
 export const WATCHED_MEMBER_ID = 3;
 export const WATCHED_STALE_TIME = 6000;
-
-export interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  department: string;
-  location: string;
-  email: string;
-  bio: string;
-}
 
 export const watchedProfileKey = ["watched-profile", WATCHED_MEMBER_ID] as const;
 

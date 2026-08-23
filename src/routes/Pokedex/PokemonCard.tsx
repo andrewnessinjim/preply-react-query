@@ -1,40 +1,5 @@
+import type { PokemonCardProps } from "./types";
 import styles from "./PokemonCard.module.css";
-
-interface PokemonType {
-  slot: number;
-  type: { name: string; url: string };
-}
-
-interface PokemonStat {
-  base_stat: number;
-  stat: { name: string };
-}
-
-interface PokemonAbility {
-  ability: { name: string };
-}
-
-interface PokemonData {
-  id: number;
-  name: string;
-  height: number;
-  weight: number;
-  sprites: {
-    front_default: string | null;
-    other?: {
-      "official-artwork"?: { front_default: string | null };
-    };
-  };
-  types: PokemonType[];
-  stats: PokemonStat[];
-  abilities: PokemonAbility[];
-}
-
-interface Props {
-  isLoading: boolean;
-  data: PokemonData | undefined;
-  error: unknown;
-}
 
 const TYPE_COLORS: Record<string, string> = {
   normal: "#A8A77A",
@@ -65,7 +30,7 @@ function capitalize(text: string) {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
-function PokemonCard({ isLoading, data, error }: Props) {
+function PokemonCard({ isLoading, data, error }: PokemonCardProps) {
   if (isLoading) {
     return (
       <div className={styles.card}>

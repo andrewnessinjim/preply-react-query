@@ -1,14 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
+import type { OrderPriority, TogglePriorityInput } from "./types";
 
 const ORDER_ID = 1;
-
-export interface OrderPriority {
-  id: number;
-  customer_name: string;
-  item: string;
-  priority: boolean;
-}
 
 const orderPriorityKey = ["order-priority", ORDER_ID] as const;
 
@@ -25,10 +19,6 @@ export function useOrderPriority() {
       return data;
     },
   });
-}
-
-export interface TogglePriorityInput {
-  priority: boolean;
 }
 
 async function togglePriority(input: TogglePriorityInput): Promise<void> {

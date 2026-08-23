@@ -1,17 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
+import type { TeamMember } from "./types";
 
 const ACCOUNT_MANAGER_ID = 1;
-
-export interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  department: string;
-  location: string;
-  email: string;
-  bio: string;
-}
 
 export default function useAccountManager() {
   const {

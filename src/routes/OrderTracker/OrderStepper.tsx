@@ -1,4 +1,5 @@
-import { ORDER_STATUSES, type OrderStatus } from "./useOrder";
+import { ORDER_STATUSES } from "./useOrder";
+import type { OrderStatus, OrderStepperProps } from "./types";
 import styles from "./OrderTracker.module.css";
 
 const STEP_LABELS: Record<OrderStatus, string> = {
@@ -7,10 +8,6 @@ const STEP_LABELS: Record<OrderStatus, string> = {
   out_for_delivery: "Out for Delivery",
   delivered: "Delivered",
 };
-
-interface OrderStepperProps {
-  status: OrderStatus;
-}
 
 function OrderStepper({ status }: OrderStepperProps) {
   const currentIndex = ORDER_STATUSES.indexOf(status);

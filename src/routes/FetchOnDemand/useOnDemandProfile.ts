@@ -1,15 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
-
-export interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  department: string;
-  location: string;
-  email: string;
-  bio: string;
-}
+import type { TeamMember } from "./types";
 
 export default function useOnDemandProfile(memberId: number | null) {
   return useQuery({

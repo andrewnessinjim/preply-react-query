@@ -1,17 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
-
-export type SortField = "score" | "combo" | "accuracy" | "played_at";
-
-export interface ScoreRow {
-  id: number;
-  score: number;
-  combo: number;
-  accuracy: number;
-  played_at: string;
-  players: { gamertag: string } | null;
-  games: { title: string } | null;
-}
+import type { SortField, ScoreRow } from "./types";
 
 export default function useLeaderboard(sortField: SortField) {
   return useQuery({

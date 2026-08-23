@@ -1,10 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-// rootMargin is a plain string, not an options object, specifically so it's
-// a stable primitive across renders — an inline { rootMargin } object
-// literal passed straight to IntersectionObserverInit would be a new
-// reference every render, forcing this effect to tear down and recreate
-// the observer constantly if it were listed as a dependency.
+
 export default function useOnScreen<T extends Element>(rootMargin = "0px") {
   // A callback ref, not useRef — the sentinel this gets attached to is
   // usually rendered behind a loading conditional, so it doesn't exist in

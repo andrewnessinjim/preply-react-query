@@ -1,14 +1,9 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../../lib/supabaseClient";
+import type { OrderStatus, Order } from "./types";
 
 export const ORDER_ID = 1;
 export const POLL_INTERVAL = 3000;
-
-export type OrderStatus =
-  | "received"
-  | "preparing"
-  | "out_for_delivery"
-  | "delivered";
 
 export const ORDER_STATUSES: OrderStatus[] = [
   "received",
@@ -16,14 +11,6 @@ export const ORDER_STATUSES: OrderStatus[] = [
   "out_for_delivery",
   "delivered",
 ];
-
-export interface Order {
-  id: number;
-  customer_name: string;
-  item: string;
-  status: OrderStatus;
-  updated_at: string;
-}
 
 const orderKey = ["order-status", ORDER_ID] as const;
 

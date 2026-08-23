@@ -1,9 +1,6 @@
 import { useScore, usePlayer } from "./useScorePlayer";
+import type { DependentPanelProps } from "./types";
 import styles from "./DependentQueries.module.css";
-
-interface DependentPanelProps {
-  simulateFailure: boolean;
-}
 
 function DependentPanel({ simulateFailure }: DependentPanelProps) {
   const scoreQuery = useScore();
