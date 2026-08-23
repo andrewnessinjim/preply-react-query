@@ -166,3 +166,16 @@
   font-family: "VT323", monospace;
   font-size: 1rem;
 }
+
+.loading {
+  animation: pulse 500ms linear infinite reverse;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.25;
+  }
+  to {
+    opacity: 0.75;
+  }
+}

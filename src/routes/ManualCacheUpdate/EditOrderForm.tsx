@@ -3,7 +3,7 @@ import { useOrderDetails, useUpdateOrderDetails } from "./useOrderDetails";
 import styles from "./ManualCacheUpdate.module.css";
 
 function EditOrderForm() {
-  const { data: order } = useOrderDetails();
+  const { data: order, isLoading: isOrderLoading } = useOrderDetails();
   const updateDetails = useUpdateOrderDetails();
 
   const [customerName, setCustomerName] = useState("");
@@ -29,14 +29,14 @@ function EditOrderForm() {
     <div className={styles.panel}>
       <h2 className={styles.panelTitle}>Edit Order Details</h2>
       <p className={styles.panelCode}>
-        onSuccess: queryClient.setQueryData(["order-details", 1],
-        updatedOrder)
+        onSuccess: queryClient.setQueryData(["order-details", 1], updatedOrder)
       </p>
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <label className={styles.field}>
           Customer name
           <input
+            className={isOrderLoading ? styles.loading : ""}
             type="text"
             required
             value={customerName}
@@ -48,6 +48,7 @@ function EditOrderForm() {
         <label className={styles.field}>
           Item
           <input
+            className={isOrderLoading ? styles.loading : ""}
             type="text"
             required
             value={item}

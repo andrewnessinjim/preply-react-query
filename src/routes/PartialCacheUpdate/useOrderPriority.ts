@@ -39,6 +39,7 @@ export function useTogglePriority() {
 
   return useMutation({
     mutationFn: togglePriority,
+    // The second parameter to the onSuccess callback is the input to the mutationFn
     onSuccess: (_data, variables) => {
       // There's no updated row in `data` to write in directly. Instead we
       // read the previous cache value and patch just the field we know we

@@ -6,10 +6,16 @@ const ORDER_ID = 1;
 
 const orderDetailsKey = ["order-details", ORDER_ID] as const;
 
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export function useOrderDetails() {
   return useQuery({
     queryKey: orderDetailsKey,
     queryFn: async (): Promise<OrderDetails> => {
+      await sleep(1700); // stands in for real network latency
+
       const { data, error } = await supabase
         .from("orders")
         .select("*")
@@ -19,10 +25,6 @@ export function useOrderDetails() {
       return data;
     },
   });
-}
-
-function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export function useUpdateOrderDetails() {
@@ -41,6 +43,8 @@ export function useUpdateOrderDetails() {
       if (error) throw error;
       return data;
     },
+
+    // React Query gives the return value of the mutationFn as the first parameter for the success callback
     onSuccess: (updatedOrder) => {
       // No invalidateQueries here — the update already returned the full,
       // current row, so we hand it straight to the cache instead of asking
