@@ -16,6 +16,7 @@ import BestOfBothWorlds from "./routes/ParallelQueries/BestOfBothWorlds";
 import DynamicParallelQueries from "./routes/DynamicParallelQueries/DynamicParallelQueries";
 import ManualCacheUpdate from "./routes/ManualCacheUpdate/ManualCacheUpdate";
 import PartialCacheUpdate from "./routes/PartialCacheUpdate/PartialCacheUpdate";
+import SortedListInvalidation from "./routes/SortedListInvalidation/SortedListInvalidation";
 import PlantCatalog from "./routes/PrefetchOnHover/PlantCatalog";
 import PlantDetail from "./routes/PrefetchOnHover/PlantDetail";
 import PlaceholderCatalog from "./routes/PrefetchOnHover/PlaceholderCatalog";
@@ -51,6 +52,10 @@ function App() {
         />
         <Route path="/manual-cache-update" element={<ManualCacheUpdate />} />
         <Route path="/partial-cache-update" element={<PartialCacheUpdate />} />
+        <Route
+          path="/sorted-list-invalidation"
+          element={<SortedListInvalidation />}
+        />
         <Route path="/prefetch-on-hover" element={<PlantCatalog />} />
         <Route path="/prefetch-on-hover/:plantId" element={<PlantDetail />} />
         <Route path="/placeholder-data" element={<PlaceholderCatalog />} />

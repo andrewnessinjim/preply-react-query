@@ -1,0 +1,254 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: #2b2b2b;
+  padding: 2rem;
+}
+
+.backLink {
+  align-self: flex-start;
+  margin: 0 auto;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.content {
+  width: 100%;
+  max-width: 46rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.intro {
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.intro code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.05rem 0.35rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+.title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.25rem;
+  color: #4c8bf5;
+  margin-bottom: 0.75rem;
+}
+
+.inlineLink {
+  color: #9dbdf7;
+}
+
+.inlineLink:hover {
+  text-decoration: underline;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sortButton {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 2px solid #4c8bf5;
+  background: transparent;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.sortButton:hover {
+  background: rgba(76, 139, 245, 0.2);
+}
+
+.sortButtonActive,
+.sortButtonActive:hover {
+  background: #4c8bf5;
+  color: #fff;
+}
+
+.fetchingHint {
+  color: #999;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+}
+
+.message {
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+}
+
+.list {
+  list-style: none;
+  background: #1a1a1a;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.headerRow,
+.row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.8fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+
+.headerRow {
+  color: #999;
+  font-family: "VT323", monospace;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.row {
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.05rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.cellName {
+  font-weight: bold;
+}
+
+.cellCategory,
+.cellPrice {
+  color: #ccc;
+}
+
+.editButton {
+  justify-self: end;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  border: 2px solid #4c8bf5;
+  background: transparent;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.editButton:hover {
+  background: rgba(76, 139, 245, 0.2);
+}
+
+.input {
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.4rem;
+  border: 2px solid #444;
+  background: #2b2b2b;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4c8bf5;
+}
+
+.rowActions {
+  display: flex;
+  gap: 0.5rem;
+  justify-self: end;
+}
+
+.saveButton {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  border: 2px solid #4c8bf5;
+  background: #4c8bf5;
+  color: #fff;
+  font-family: "VT323", monospace;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.saveButton:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.saveButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.cancelButton {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  border: 2px solid #666;
+  background: transparent;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cancelButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+@media (max-width: 32rem) {
+  .headerRow {
+    display: none;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .rowActions {
+    justify-self: start;
+  }
+
+  .editButton {
+    justify-self: start;
+  }
+}
+
+.placeholder, .fetching {
+  opacity: 0.5;
+}

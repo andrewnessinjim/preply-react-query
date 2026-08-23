@@ -173,6 +173,14 @@ const examples: Example[] = [
     to: "/partial-cache-update",
     category: "mutation",
   },
+  {
+    title: "Sorted List Invalidation",
+    description:
+      "An editable list sortable by 3 different fields. Editing a row can move it under every sort order at once, so onSuccess can't patch one cache entry by hand — it invalidates all 3, and returns the Promise.all of those invalidations so the mutation stays pending until every refetch actually lands.",
+    tag: "invalidateQueries",
+    to: "/sorted-list-invalidation",
+    category: "mutation",
+  },
 ];
 
 const SECTIONS: { category: Category; title: string; description: string }[] = [
