@@ -1,0 +1,178 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: #2b2b2b;
+  padding: 2rem;
+}
+
+.backLink {
+  align-self: flex-start;
+  margin: 0 auto;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.content {
+  width: 100%;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.intro {
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.intro code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.05rem 0.35rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+.title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.25rem;
+  color: #d0392b;
+  margin-bottom: 0.75rem;
+}
+
+.inlineLink {
+  color: #f5a89f;
+}
+
+.inlineLink:hover {
+  text-decoration: underline;
+}
+
+.addForm {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.addInput {
+  flex: 1;
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.5rem;
+  border: 2px solid #444;
+  background: #1a1a1a;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+}
+
+.addInput:focus {
+  outline: none;
+  border-color: #d0392b;
+}
+
+.addInput:disabled {
+  opacity: 0.6;
+}
+
+.addButton {
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: 2px solid #d0392b;
+  background: #d0392b;
+  color: #fff;
+  font-family: "VT323", monospace;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.addButton:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.addButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.simulateToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.simulateToggle input {
+  cursor: pointer;
+  accent-color: #d0392b;
+}
+
+.message {
+  color: #999;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+}
+
+.todoList {
+  list-style: none;
+  background: #1a1a1a;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.todoItem {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.todoItem:last-child {
+  border-bottom: none;
+}
+
+.todoLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #e8e8e8;
+  font-family: "VT323", monospace;
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.todoLabel input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  cursor: pointer;
+  accent-color: #d0392b;
+}
+
+.todoTitleDone {
+  color: #999;
+  text-decoration: line-through;
+}
+
+.todoError {
+  margin-top: 0.35rem;
+  margin-left: 1.9rem;
+  color: #f5a89f;
+  font-family: "VT323", monospace;
+  font-size: 0.95rem;
+}

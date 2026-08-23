@@ -50,12 +50,12 @@
 .title {
   font-family: "Press Start 2P", monospace;
   font-size: 1.25rem;
-  color: #4c8bf5;
+  color: #d0392b;
   margin-bottom: 0.75rem;
 }
 
 .inlineLink {
-  color: #9dbdf7;
+  color: #f5a89f;
 }
 
 .inlineLink:hover {
@@ -72,7 +72,7 @@
 .sortButton {
   padding: 0.5rem 1rem;
   border-radius: 999px;
-  border: 2px solid #4c8bf5;
+  border: 2px solid #d0392b;
   background: transparent;
   color: #e8e8e8;
   font-family: "VT323", monospace;
@@ -84,12 +84,12 @@
 }
 
 .sortButton:hover {
-  background: rgba(76, 139, 245, 0.2);
+  background: rgba(208, 57, 43, 0.2);
 }
 
 .sortButtonActive,
 .sortButtonActive:hover {
-  background: #4c8bf5;
+  background: #d0392b;
   color: #fff;
 }
 
@@ -155,7 +155,7 @@
   justify-self: end;
   padding: 0.3rem 0.8rem;
   border-radius: 999px;
-  border: 2px solid #4c8bf5;
+  border: 2px solid #d0392b;
   background: transparent;
   color: #e8e8e8;
   font-family: "VT323", monospace;
@@ -164,7 +164,7 @@
 }
 
 .editButton:hover {
-  background: rgba(76, 139, 245, 0.2);
+  background: rgba(208, 57, 43, 0.2);
 }
 
 .input {
@@ -180,7 +180,7 @@
 
 .input:focus {
   outline: none;
-  border-color: #4c8bf5;
+  border-color: #d0392b;
 }
 
 .rowActions {
@@ -192,8 +192,8 @@
 .saveButton {
   padding: 0.3rem 0.8rem;
   border-radius: 999px;
-  border: 2px solid #4c8bf5;
-  background: #4c8bf5;
+  border: 2px solid #d0392b;
+  background: #d0392b;
   color: #fff;
   font-family: "VT323", monospace;
   font-size: 0.95rem;

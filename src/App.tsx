@@ -17,6 +17,8 @@ import DynamicParallelQueries from "./routes/DynamicParallelQueries/DynamicParal
 import ManualCacheUpdate from "./routes/ManualCacheUpdate/ManualCacheUpdate";
 import PartialCacheUpdate from "./routes/PartialCacheUpdate/PartialCacheUpdate";
 import SortedListInvalidation from "./routes/SortedListInvalidation/SortedListInvalidation";
+import OptimisticUpdatesWithoutCache from "./routes/OptimisticUpdatesWithoutCache/OptimisticUpdatesWithoutCache";
+import OptimisticUpdatesInCache from "./routes/OptimisticUpdatesInCache/OptimisticUpdatesInCache";
 import PlantCatalog from "./routes/PrefetchOnHover/PlantCatalog";
 import PlantDetail from "./routes/PrefetchOnHover/PlantDetail";
 import PlaceholderCatalog from "./routes/PrefetchOnHover/PlaceholderCatalog";
@@ -55,6 +57,14 @@ function App() {
         <Route
           path="/sorted-list-invalidation"
           element={<SortedListInvalidation />}
+        />
+        <Route
+          path="/optimistic-updates-without-cache"
+          element={<OptimisticUpdatesWithoutCache />}
+        />
+        <Route
+          path="/optimistic-updates-in-cache"
+          element={<OptimisticUpdatesInCache />}
         />
         <Route path="/prefetch-on-hover" element={<PlantCatalog />} />
         <Route path="/prefetch-on-hover/:plantId" element={<PlantDetail />} />

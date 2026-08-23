@@ -176,10 +176,28 @@ const examples: Example[] = [
   {
     title: "Sorted List Invalidation",
     description:
-      "An editable list sortable by 3 different fields. Editing a row can move it under every sort order at once, so onSuccess can't patch one cache entry by hand — it invalidates all 3, and returns the Promise.all of those invalidations so the mutation stays pending until every refetch actually lands.",
+      "An editable list sortable by 3 different fields. Editing a row can move it under every sort order at once, so onSuccess can't patch one cache entry by hand — it invalidates the shared queryKey prefix instead, and returns that promise so the mutation stays pending until every refetch actually lands.",
     tag: "invalidateQueries",
     to: "/sorted-list-invalidation",
     category: "mutation",
+  },
+  {
+    title: "Optimistic Updates Without Cache",
+    description:
+      "A todo list whose checkbox flips the instant you click it — checked is derived straight from the toggle mutation's own isPending, not from the cache. Flip on the simulate-error checkbox and watch it revert on its own with no onError handler: there's nothing to roll back when nothing was ever written. Toggle a few different todos quickly and watch one flicker to the wrong value before it settles.",
+    tag: "isPending",
+    to: "/optimistic-updates-without-cache",
+    category: "mutation",
+    subsection: "user-experience",
+  },
+  {
+    title: "Optimistic Updates In Cache",
+    description:
+      "The same todo list, fixed: onMutate writes the new value straight into the cache before the request even goes out, so checked is just todo.status — no isPending trick, no cross-row flicker. onError rolls back to a snapshot taken before the optimistic write, and onSettled always resyncs with the server.",
+    tag: "onMutate",
+    to: "/optimistic-updates-in-cache",
+    category: "mutation",
+    subsection: "user-experience",
   },
 ];
 
