@@ -1,4 +1,4 @@
-export type Category = "query" | "mutation";
+export type Category = "query" | "mutation" | "scaling";
 
 export interface Example {
   title: string;

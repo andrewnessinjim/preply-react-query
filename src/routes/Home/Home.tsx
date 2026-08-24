@@ -199,6 +199,30 @@ const examples: Example[] = [
     category: "mutation",
     subsection: "user-experience",
   },
+  {
+    title: "Query Configuration Levels",
+    description:
+      "A plant shop dashboard running its own QueryClient, configured with three levels of staleTime at once — a global default, a fuzzy-matched setQueryDefaults prefix, and a direct per-query override — so you can see exactly which one wins and why.",
+    tag: "setQueryDefaults",
+    to: "/config-levels",
+    category: "scaling",
+  },
+  {
+    title: "Default Query Function",
+    description:
+      "queryKey can never be defaulted — TanStack Query's own types forbid it — but queryFn can. One default queryFn derives the Supabase table and filter from each query's key, so three unrelated queries share it with no per-call queryFn at all.",
+    tag: "defaultOptions.queries.queryFn",
+    to: "/default-query-fn",
+    category: "scaling",
+  },
+  {
+    title: "Query Key Factories",
+    description:
+      "The todo app again, rebuilt around one todoKeys factory instead of hand-written arrays. Every key — list(filter), detail(id) — starts with the same [\"todos\"] prefix, so adding a todo can invalidate just the lists and toggling one can invalidate just its own detail entry.",
+    tag: "queryKey factory",
+    to: "/query-key-factories",
+    category: "scaling",
+  },
 ];
 
 const SECTIONS: { category: Category; title: string; description: string }[] = [
@@ -211,6 +235,12 @@ const SECTIONS: { category: Category; title: string; description: string }[] = [
     category: "mutation",
     title: "Mutations",
     description: "Writing data with useMutation.",
+  },
+  {
+    category: "scaling",
+    title: "Scaling",
+    description:
+      "Configuring TanStack Query across a growing app — from one global default down to a single query.",
   },
 ];
 

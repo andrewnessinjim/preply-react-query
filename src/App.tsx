@@ -26,6 +26,9 @@ import PlaceholderDetail from "./routes/PrefetchOnHover/PlaceholderDetail";
 import Pagination from "./routes/Pagination/Pagination";
 import InfiniteScroll from "./routes/InfiniteScroll/InfiniteScroll";
 import InfiniteScrollAuto from "./routes/InfiniteScroll/InfiniteScrollAuto";
+import QueryConfigurationLevels from "./routes/QueryConfigurationLevels/QueryConfigurationLevels";
+import DefaultQueryFunction from "./routes/DefaultQueryFunction/DefaultQueryFunction";
+import QueryKeyFactories from "./routes/QueryKeyFactories/QueryKeyFactories";
 
 function App() {
   return (
@@ -76,6 +79,9 @@ function App() {
         <Route path="/pagination" element={<Pagination />} />
         <Route path="/infinite-scroll" element={<InfiniteScroll />} />
         <Route path="/infinite-scroll-auto" element={<InfiniteScrollAuto />} />
+        <Route path="/config-levels" element={<QueryConfigurationLevels />} />
+        <Route path="/default-query-fn" element={<DefaultQueryFunction />} />
+        <Route path="/query-key-factories" element={<QueryKeyFactories />} />
       </Routes>
     </BrowserRouter>
   );
