@@ -66,3 +66,9 @@ The app will be available at the URL Vite prints (default [http://localhost:5173
 npx supabase stop
 ```
 
+### Reset Supabase DB
+If you would like to reset the db after pulling new example or after experimenting, you can use the following command:
+
+```sh
+npx supabase reset db
+```
