@@ -3,13 +3,7 @@ export interface PlantRow {
   name: string;
   category: string;
   price_cents: number;
-}
-
-export interface TeamMemberRow {
-  id: number;
-  name: string;
-  role: string;
-  department: string;
+  light: string;
 }
 
 export type TableFilter = Record<string, string | number>;

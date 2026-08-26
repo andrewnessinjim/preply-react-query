@@ -4,12 +4,13 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import ClockWidget from "./ClockWidget";
 import Intro from "./Intro";
 import QueryFnWidget from "./QueryFnWidget";
-import { ADMIN_PREFIX, createDefaultQueryFnClient } from "./queryClient";
+import { PLANTS_KEY, createDefaultQueryFnClient } from "./queryClient";
 import {
   useAllPlants,
+  usePlantById,
   usePlantsByCategory,
+  usePlantsByCategoryAndLight,
   useServerClock,
-  useTeamMember,
 } from "./useDefaultQueryFn";
 import styles from "./DefaultQueryFunction.module.css";
 
@@ -20,15 +21,19 @@ function formatPrice(cents: number) {
 function Widgets() {
   const allPlants = useAllPlants();
   const succulents = usePlantsByCategory("Succulent");
-  const manager = useTeamMember(1);
+  const singlePlant = usePlantById(1);
+  const brightTropical = usePlantsByCategoryAndLight(
+    "Tropical",
+    "Bright indirect",
+  );
   const clock = useServerClock();
 
   return (
     <div className={styles.grid}>
       <QueryFnWidget
         title="All Plants"
-        queryKey={[...ADMIN_PREFIX, "plants"]}
-        explanation='queryKey[1] is the table name, no filter — the shared queryFn runs supabase.from("plants").select("*").'
+        queryKey={PLANTS_KEY}
+        explanation='queryKey[0] is the table name, no filter — the shared queryFn runs supabase.from("plants").select("*").'
         data={allPlants.data}
         isLoading={allPlants.isLoading}
         isError={allPlants.isError}
@@ -36,21 +41,33 @@ function Widgets() {
       />
       <QueryFnWidget
         title="Succulents"
-        queryKey={[...ADMIN_PREFIX, "plants", { category: "Succulent" }]}
-        explanation={`Same table, but queryKey[2] adds a category filter — the shared queryFn turns it into .eq("category", "Succulent").`}
+        queryKey={[...PLANTS_KEY, { category: "Succulent" }]}
+        explanation={`Same table, but queryKey[1] adds a category filter — the shared queryFn turns it into .eq("category", "Succulent").`}
         data={succulents.data}
         isLoading={succulents.isLoading}
         isError={succulents.isError}
         renderRow={(row) => `${row.name} — ${formatPrice(row.price_cents)}`}
       />
       <QueryFnWidget
-        title="Account Manager"
-        queryKey={[...ADMIN_PREFIX, "team_members", { id: 1 }]}
-        explanation="A completely different table, filtered by id instead of category — still under the same prefix, still zero queryFn passed to useQuery."
-        data={manager.data}
-        isLoading={manager.isLoading}
-        isError={manager.isError}
-        renderRow={(row) => `${row.name} — ${row.role}, ${row.department}`}
+        title="Single Plant"
+        queryKey={[...PLANTS_KEY, { id: 1 }]}
+        explanation="Same table as the first widget, but queryKey[1] filters by id instead of category — still under the same prefix, still zero queryFn passed to useQuery."
+        data={singlePlant.data}
+        isLoading={singlePlant.isLoading}
+        isError={singlePlant.isError}
+        renderRow={(row) => `${row.name} — ${formatPrice(row.price_cents)}`}
+      />
+      <QueryFnWidget
+        title="Bright Tropicals"
+        queryKey={[
+          ...PLANTS_KEY,
+          { category: "Tropical", light: "Bright indirect" },
+        ]}
+        explanation='Two-column filter: queryKey[1] has both category and light, and the shared queryFn .eq()s each one in turn — narrowing the 3 Tropical plants down to the 2 that also want bright indirect light, leaving out Boston Fern (Tropical, but medium indirect).'
+        data={brightTropical.data}
+        isLoading={brightTropical.isLoading}
+        isError={brightTropical.isError}
+        renderRow={(row) => `${row.name} — ${formatPrice(row.price_cents)}`}
       />
       <ClockWidget time={clock.data} />
     </div>

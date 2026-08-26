@@ -18,21 +18,15 @@ import type { TableFilter } from "./types";
 //
 // A default *queryFn*, on the other hand, is completely ordinary — as long
 // as it can figure out what to fetch purely from the queryKey it's handed.
-// ADMIN_PREFIX marks the internal admin panel's queries — arbitrary,
-// unrelated tables (plants, team members, whatever else gets added later)
-// that all just need "look up this table, filtered like this" instead of a
-// bespoke fetch each. That's a real, recurring shape for an admin tool, and
-// it's exactly what a shared queryFn can serve: reads queryKey as
-// [...ADMIN_PREFIX, table, filter?], and fetches queryKey[1] filtered by
-// queryKey[2].
-export const ADMIN_PREFIX = ["admin"] as const;
+// PLANTS_KEY is both the fuzzy-match prefix passed to setQueryDefaults and
+// the table name itself, no separate "admin" wrapper layer needed. Any
+// query whose key starts with ["plants"] reads the rest as an optional
+// filter: [table, filter?], and fetches queryKey[0] filtered by
+// queryKey[1].
+export const PLANTS_KEY = ["plants"] as const;
 
 async function defaultQueryFn({ queryKey }: QueryFunctionContext) {
-  const [, table, filter] = queryKey as [
-    string,
-    string,
-    TableFilter | undefined,
-  ];
+  const [table, filter] = queryKey as [string, TableFilter | undefined];
 
   let query = supabase.from(table).select("*");
   if (filter) {
@@ -55,10 +49,10 @@ export function createDefaultQueryFnClient() {
 
   // Fuzzy-matched, like setQueryDefaults(prefix, { staleTime }) in the Query
   // Configuration Levels demo — but the option being defaulted here is
-  // queryFn. Only queries whose key starts with ADMIN_PREFIX pick this up;
-  // anything outside the admin panel still needs its own queryFn, the same
-  // as it would on any other QueryClient.
-  queryClient.setQueryDefaults(ADMIN_PREFIX, {
+  // queryFn. Only queries whose key starts with PLANTS_KEY pick this up;
+  // anything else (Server Clock included) still needs its own queryFn, the
+  // same as it would on any other QueryClient.
+  queryClient.setQueryDefaults(PLANTS_KEY, {
     queryFn: defaultQueryFn,
   });
 

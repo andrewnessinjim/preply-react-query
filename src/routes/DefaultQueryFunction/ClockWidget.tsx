@@ -13,7 +13,7 @@ function ClockWidget({ time }: ClockWidgetProps) {
       </div>
 
       <p className={styles.explanation}>
-        Outside the ["admin"] prefix — setQueryDefaults never matches this
+        Outside the ["plants"] prefix — setQueryDefaults never matches this
         key, so it brings its own queryFn instead of borrowing the shared
         one.
       </p>
