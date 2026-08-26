@@ -223,6 +223,14 @@ const examples: Example[] = [
     to: "/query-key-factories",
     category: "scaling",
   },
+  {
+    title: "Optimized Search",
+    description:
+      "A plant search box where debouncing and request cancellation each solve a different cost: debouncing cuts how often a request fires, and cancellation drops one that's already outdated once a newer search takes over.",
+    tag: "AbortSignal",
+    to: "/optimized-search",
+    category: "scaling",
+  },
 ];
 
 const SECTIONS: { category: Category; title: string; description: string }[] = [

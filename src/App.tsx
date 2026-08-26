@@ -29,6 +29,7 @@ import InfiniteScrollAuto from "./routes/InfiniteScroll/InfiniteScrollAuto";
 import QueryConfigurationLevels from "./routes/QueryConfigurationLevels/QueryConfigurationLevels";
 import DefaultQueryFunction from "./routes/DefaultQueryFunction/DefaultQueryFunction";
 import QueryKeyFactories from "./routes/QueryKeyFactories/QueryKeyFactories";
+import OptimizedSearch from "./routes/OptimizedSearch/OptimizedSearch";
 
 function App() {
   return (
@@ -82,6 +83,7 @@ function App() {
         <Route path="/config-levels" element={<QueryConfigurationLevels />} />
         <Route path="/default-query-fn" element={<DefaultQueryFunction />} />
         <Route path="/query-key-factories" element={<QueryKeyFactories />} />
+        <Route path="/optimized-search" element={<OptimizedSearch />} />
       </Routes>
     </BrowserRouter>
   );
