@@ -27,7 +27,7 @@ async function fetchTodos(): Promise<Todo[]> {
       .from("todos")
       .select("id, title, status, created_at")
       .order("id", { ascending: true }),
-    randomDelay(300, 700),
+    randomDelay(4000, 5000),
   ]);
   if (error) throw error;
   return data;
@@ -43,7 +43,7 @@ export function useTodos() {
 async function addTodo(input: NewTodoInput): Promise<void> {
   const [{ error }] = await Promise.all([
     supabase.from("todos").insert({ title: input.title, status: false }),
-    randomDelay(500, 1100),
+    randomDelay(500, 500),
   ]);
   if (error) throw error;
 }
@@ -61,7 +61,7 @@ export function useAddTodo() {
 }
 
 async function toggleTodo(input: ToggleTodoInput): Promise<void> {
-  await randomDelay(600, 1400);
+  await randomDelay(400, 800);
 
   if (input.simulateFailure) {
     throw new Error("Todo service is down");
@@ -110,14 +110,5 @@ export function useToggleTodo() {
         queryClient.setQueryData(todosKey, context.previousTodos);
       }
     },
-    // Deliberately no onSuccess/onSettled invalidateQueries here. It's
-    // tempting to add one "just to resync with the server" — but toggle a
-    // few different todos at once and that refetch can land while a
-    // different row's own mutation is still in flight, wholesale-replacing
-    // the whole list with a snapshot that still has that row's old value
-    // and clobbering its optimistic write. A successful update already
-    // told us exactly what's true; there's nothing left to reconcile, and
-    // reconciling anyway is what reintroduces the other demo's cross-row
-    // flicker here.
   });
 }
