@@ -59,10 +59,14 @@
   color: #cfcfcf;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  gap: 1.25rem;
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  background: #1f1f1f;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
 }
 
 .subsection {
@@ -92,48 +96,79 @@
   color: #999;
 }
 
-.tile {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.25rem;
-  background: #d0392b;
-  border-radius: 0.75rem;
-  box-shadow:
-    inset 0 0 0 3px #a8261b,
-    0 6px 14px rgba(0, 0, 0, 0.4);
-  color: #fff;
-  text-decoration: none;
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease;
+.row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.tile:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    inset 0 0 0 3px #a8261b,
-    0 10px 20px rgba(0, 0, 0, 0.5);
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowMain {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1.1rem;
+}
+
+.rowLink {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+.rowLink:hover .rowTitle {
+  text-decoration: underline;
+}
+
+.rowTitle {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.65rem;
+  line-height: 1.4;
+  color: #e8e8e8;
 }
 
 .tag {
-  align-self: flex-start;
+  flex-shrink: 0;
   padding: 0.15rem 0.6rem;
   border-radius: 999px;
-  background: #1a1a1a;
+  background: #a8261b;
+  color: #fff;
   font-family: "VT323", monospace;
-  font-size: 0.9rem;
-  letter-spacing: 0.04em;
-}
-
-.tileTitle {
-  font-family: "Press Start 2P", monospace;
   font-size: 0.85rem;
-  line-height: 1.4;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
-.tileDescription {
+.detailsButton {
+  flex-shrink: 0;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 2px solid #666;
+  background: transparent;
+  color: #cfcfcf;
   font-family: "VT323", monospace;
-  font-size: 1.1rem;
-  color: #f5d9d5;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.detailsButton:hover {
+  border-color: #d0392b;
+  color: #fff;
+}
+
+.rowDescription {
+  margin: 0;
+  padding: 0 1.1rem 0.9rem 1.1rem;
+  background: #262626;
+  font-family: "VT323", monospace;
+  font-size: 1.05rem;
+  color: #cfcfcf;
 }

@@ -110,5 +110,14 @@ export function useToggleTodo() {
         queryClient.setQueryData(todosKey, context.previousTodos);
       }
     },
+    // cancelQueries above can silently drop data from an unrelated in-flight
+    // refetch — e.g. the one useAddTodo's onSuccess just kicked off — since
+    // cancelling it means nothing ever delivers that data. Without this
+    // resync, a toggle right after an add can permanently erase the just-
+    // added row. Toggling a different row while this settle-refetch is in
+    // flight can cause a brief flicker back to its pre-toggle value, but
+    // that heals itself the instant that row's own onSettled fires — a
+    // temporary flicker beats a permanently missing row.
+    onSettled: () => queryClient.invalidateQueries({ queryKey: todosKey }),
   });
 }

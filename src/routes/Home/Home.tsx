@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import type { Category, Example } from "./types";
 import styles from "./Home.module.css";
@@ -265,13 +266,29 @@ const SUBSECTIONS: { key: string; title: string; description: string }[] = [
   },
 ];
 
-function ExampleTile({ example }: { example: Example }) {
+function ExampleRow({ example }: { example: Example }) {
+  const [showDescription, setShowDescription] = useState(false);
+
   return (
-    <Link to={example.to} className={styles.tile}>
-      <span className={styles.tag}>{example.tag}</span>
-      <h3 className={styles.tileTitle}>{example.title}</h3>
-      <p className={styles.tileDescription}>{example.description}</p>
-    </Link>
+    <li className={styles.row}>
+      <div className={styles.rowMain}>
+        <Link to={example.to} className={styles.rowLink}>
+          <span className={styles.rowTitle}>{example.title}</span>
+        </Link>
+        <span className={styles.tag}>{example.tag}</span>
+        <button
+          type="button"
+          className={styles.detailsButton}
+          aria-expanded={showDescription}
+          onClick={() => setShowDescription((open) => !open)}
+        >
+          {showDescription ? "Hide" : "Details"}
+        </button>
+      </div>
+      {showDescription && (
+        <p className={styles.rowDescription}>{example.description}</p>
+      )}
+    </li>
   );
 }
 
@@ -308,11 +325,11 @@ function Home() {
               </div>
 
               {topLevel.length > 0 && (
-                <div className={styles.grid}>
+                <ul className={styles.list}>
                   {topLevel.map((example) => (
-                    <ExampleTile key={example.to} example={example} />
+                    <ExampleRow key={example.to} example={example} />
                   ))}
-                </div>
+                </ul>
               )}
 
               {subsections.map((subsection) => (
@@ -326,11 +343,11 @@ function Home() {
                     </p>
                   </div>
 
-                  <div className={styles.grid}>
+                  <ul className={styles.list}>
                     {subsection.examples.map((example) => (
-                      <ExampleTile key={example.to} example={example} />
+                      <ExampleRow key={example.to} example={example} />
                     ))}
-                  </div>
+                  </ul>
                 </div>
               ))}
             </section>
