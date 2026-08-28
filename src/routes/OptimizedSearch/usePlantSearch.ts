@@ -20,6 +20,7 @@ async function searchPlants(
   // on the Supabase call below is the only thing that needs to know about
   // cancellation: the moment it aborts, that promise rejects, and
   // Promise.all rejects right along with it without waiting for the delay.
+  await randomDelay(3400, 4400);
   const [{ data, error }] = await Promise.all([
     supabase
       .from("plants")
@@ -27,7 +28,6 @@ async function searchPlants(
       .or(`name.ilike.%${term}%,summary.ilike.%${term}%`)
       .order("name")
       .abortSignal(signal),
-    randomDelay(1900, 2400),
   ]);
   if (error) throw error;
   return data;

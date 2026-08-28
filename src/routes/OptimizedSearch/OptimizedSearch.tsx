@@ -6,7 +6,7 @@ import SearchInput from "./SearchInput";
 import { useDebouncedValue } from "./useDebouncedValue";
 import styles from "./OptimizedSearch.module.css";
 
-const DEBOUNCE_MS = 3000;
+const DEBOUNCE_MS = 500;
 
 function OptimizedSearch() {
   const [inputValue, setInputValue] = useState("");
